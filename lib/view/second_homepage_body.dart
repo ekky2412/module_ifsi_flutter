@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:module_ifsi_flutter/common_button_approve.dart';
-import 'package:module_ifsi_flutter/common_name_card.dart';
+import 'package:module_ifsi_flutter/view/common_button_approve.dart';
+import 'package:module_ifsi_flutter/view/common_name_card.dart';
 
 class SecondHomepageBody extends StatefulWidget {
   const SecondHomepageBody({Key? key}) : super(key: key);

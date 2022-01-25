@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:module_ifsi_flutter/feature/countries/page_detail_countries.dart';
 import 'package:module_ifsi_flutter/feature/form_validation/FormInputValidation.dart';
 import 'package:module_ifsi_flutter/feature/image_picker/image_picker_section.dart';
 import 'package:module_ifsi_flutter/feature/login/login_section.dart';
+import 'package:module_ifsi_flutter/feature/todo_list/page_todo_list.dart';
+import 'package:module_ifsi_flutter/view/common_submit_button.dart';
 
 class HomepageBody extends StatefulWidget {
   const HomepageBody({Key? key}) : super(key: key);
@@ -27,6 +30,10 @@ class _HomepageBodyState extends State<HomepageBody> {
             _buildFormInputValidation(),
             SizedBox(height: 10),
             _buildImagePickerSection(),
+            SizedBox(height: 10),
+            _buildCountriesButton(),
+            SizedBox(height: 10),
+            _buildTodoListButton(),
           ],
         ),
       ),
@@ -70,6 +77,32 @@ class _HomepageBodyState extends State<HomepageBody> {
         SizedBox(height: 10),
         ImagePickerSection(),
       ],
+    );
+  }
+
+  Widget _buildCountriesButton() {
+    return CommonSubmitButton(
+      labelButton: "See Countries",
+      submitCallback: (value) {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => PageDetailCountries(),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildTodoListButton() {
+    return CommonSubmitButton(
+      labelButton: "Todo List",
+      submitCallback: (value) {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => PageTodoList(),
+          ),
+        );
+      },
     );
   }
 }

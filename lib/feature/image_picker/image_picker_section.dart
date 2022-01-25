@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:module_ifsi_flutter/common_submit_button.dart';
 import 'package:module_ifsi_flutter/utils/image_picker_helper.dart';
+import 'package:module_ifsi_flutter/view/common_submit_button.dart';
 
 class ImagePickerSection extends StatefulWidget {
   const ImagePickerSection({Key? key}) : super(key: key);
