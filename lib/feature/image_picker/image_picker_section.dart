@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:module_ifsi_flutter/utils/image_picker_helper.dart';
+import 'package:module_ifsi_flutter/feature/image_picker/image_picker_helper.dart';
 import 'package:module_ifsi_flutter/view/common_submit_button.dart';
 
 class ImagePickerSection extends StatefulWidget {
