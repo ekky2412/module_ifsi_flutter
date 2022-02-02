@@ -4,6 +4,7 @@ import 'package:module_ifsi_flutter/feature/countries/page_detail_countries.dart
 import 'package:module_ifsi_flutter/feature/form_validation/FormInputValidation.dart';
 import 'package:module_ifsi_flutter/feature/image_picker/image_picker_section.dart';
 import 'package:module_ifsi_flutter/feature/login/login_section.dart';
+import 'package:module_ifsi_flutter/feature/login_shared_prefs/page_login_shared_prefs.dart';
 import 'package:module_ifsi_flutter/feature/todo_list/page_todo_list.dart';
 import 'package:module_ifsi_flutter/view/common_submit_button.dart';
 
@@ -34,6 +35,8 @@ class _HomepageBodyState extends State<HomepageBody> {
             _buildCountriesButton(),
             SizedBox(height: 10),
             _buildTodoListButton(),
+            SizedBox(height: 10),
+            _buildSharedPrefsButton(),
           ],
         ),
       ),
@@ -100,6 +103,19 @@ class _HomepageBodyState extends State<HomepageBody> {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => PageTodoList(),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildSharedPrefsButton() {
+    return CommonSubmitButton(
+      labelButton: "Shared Preferences",
+      submitCallback: (value) {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => PageLoginSharedPrefs(),
           ),
         );
       },
