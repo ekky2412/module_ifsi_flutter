@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:module_ifsi_flutter/view/common_submit_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -82,7 +83,7 @@ class _PageLoginSharedPrefsState extends State<PageLoginSharedPrefs> {
     );
   }
 
-  void _processLogout() async{
+  void _processLogout() async {
     SharedPreferences getPreferences = await _prefs;
     await getPreferences.setBool("loginStatus", false);
   }
@@ -100,6 +101,13 @@ class _PageLoginSharedPrefsState extends State<PageLoginSharedPrefs> {
   void _processCheckStatus() async {
     SharedPreferences getPreferences = await _prefs;
     bool status = getPreferences.getBool("loginStatus") ?? false;
-    print("Current Status $status");
+    // print("Current Status $status");
+    showToast("Current Status $status",
+        duration: Toast.LENGTH_SHORT, gravity: ToastGravity.BOTTOM);
+  }
+
+  void showToast(String msg, {Toast? duration, ToastGravity? gravity}) {
+    Fluttertoast.showToast(
+        msg: msg, toastLength: duration, gravity: gravity );
   }
 }
