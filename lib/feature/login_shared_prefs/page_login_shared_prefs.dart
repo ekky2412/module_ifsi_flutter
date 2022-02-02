@@ -42,6 +42,7 @@ class _PageLoginSharedPrefsState extends State<PageLoginSharedPrefs> {
             ),
             _buildLoginButton(),
             _buildCheckStatusButton(),
+            _buildLogoutButton(),
           ],
         ),
       ),
@@ -63,6 +64,15 @@ class _PageLoginSharedPrefsState extends State<PageLoginSharedPrefs> {
     );
   }
 
+  Widget _buildLogoutButton() {
+    return CommonSubmitButton(
+      labelButton: "Logout",
+      submitCallback: (value) {
+        _processLogout();
+      },
+    );
+  }
+
   Widget _buildCheckStatusButton() {
     return CommonSubmitButton(
       labelButton: "Cek Status",
@@ -72,12 +82,16 @@ class _PageLoginSharedPrefsState extends State<PageLoginSharedPrefs> {
     );
   }
 
+  void _processLogout() async{
+    SharedPreferences getPreferences = await _prefs;
+    await getPreferences.setBool("loginStatus", false);
+  }
+
   void _processLogin(String username, String password) async {
     if (username == usernameDB && password == passwordDB) {
       SharedPreferences getPreferences = await _prefs;
-      bool status = await getPreferences.setBool("loginStatus", true);
+      await getPreferences.setBool("loginStatus", true);
       print("Login Success");
-      print("Current Status $status");
     } else {
       print("Login Failed");
     }
